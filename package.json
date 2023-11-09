@@ -1,0 +1,36 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "tsc": "tsc -p tsconfig.json --noEmit",
+    "typeorm": "NODE_ENV=migration ts-node ./node_modules/.bin/typeorm",
+    "database:refill": "npm run schema:drop && npm run migration:run",
+    "schema:drop": "npm run typeorm -- schema:drop --dataSource=src/db/ormconfig.ts",
+    "migration:run": "npm run typeorm -- migration:run --dataSource=src/db/ormconfig.ts",
+    "migration:generate": "npm run typeorm -- migration:generate src/db/migrations/$npm_config_name --dataSource=db/ormconfig.ts",
+    "migration:create": "npm run typeorm -- migration:create src/db/migrations/$npm_config_name",
+    "db:create": "docker run -d --name gpt -p 5435:5432 -e POSTGRES_PASSWORD=gpt_pass -e POSTGRES_USER=gpt -e POSTGRES_DB=gpt postgres"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "log4js": "^6.9.1",
+    "openai": "^4.15.3",
+    "pg": "^8.11.3",
+    "telegraf": "^4.15.0",
+    "telegram-keyboard": "^2.3.3",
+    "tiktoken": "^1.0.10",
+    "typeorm": "^0.3.17",
+    "typeorm-naming-strategies": "^4.1.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.2"
+  }
+}

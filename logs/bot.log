@@ -1,0 +1,422 @@
+[2023-11-08T15:13:36.198] [ERROR] Bot - EntityMetadataNotFoundError: No metadata for "UserEntity" was found.
+    at DataSource.getMetadata (/Users/e.shipko/devel/bot/node_modules/src/data-source/DataSource.ts:444:30)
+    at Repository.get metadata [as metadata] (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:53:40)
+    at Repository.findOne (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:577:42)
+    at createUserIfNotExist (/Users/e.shipko/devel/bot/user.ts:16:37)
+    at /Users/e.shipko/devel/bot/index.ts:39:33
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:113:53
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:393:28
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:162:111
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+[2023-11-08T15:17:08.702] [INFO] Bot - STOP
+[2023-11-08T15:17:08.797] [INFO] Bot - START
+[2023-11-08T15:17:14.122] [ERROR] Bot - EntityMetadataNotFoundError: No metadata for "UserEntity" was found.
+    at DataSource.getMetadata (/Users/e.shipko/devel/bot/node_modules/src/data-source/DataSource.ts:444:30)
+    at Repository.get metadata [as metadata] (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:53:40)
+    at Repository.findOne (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:577:42)
+    at createUserIfNotExist (/Users/e.shipko/devel/bot/user.ts:16:37)
+    at /Users/e.shipko/devel/bot/index.ts:39:33
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:113:53
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:393:28
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:162:111
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+[2023-11-08T15:21:02.650] [INFO] Bot - STOP
+[2023-11-08T15:21:02.745] [INFO] Bot - START
+[2023-11-08T15:21:08.888] [ERROR] Bot - EntityMetadataNotFoundError: No metadata for "UserEntity" was found.
+    at DataSource.getMetadata (/Users/e.shipko/devel/bot/node_modules/src/data-source/DataSource.ts:444:30)
+    at Repository.get metadata [as metadata] (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:53:40)
+    at Repository.findOne (/Users/e.shipko/devel/bot/node_modules/src/repository/Repository.ts:577:42)
+    at createUserIfNotExist (/Users/e.shipko/devel/bot/user.ts:16:37)
+    at /Users/e.shipko/devel/bot/index.ts:40:33
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:113:53
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:393:28
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:162:111
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+[2023-11-08T15:22:41.576] [INFO] Bot - STOP
+[2023-11-08T15:22:41.758] [INFO] Bot - START
+[2023-11-08T15:22:50.835] [INFO] Bot - User: id 424608053 nickname evgenyship registered
+[2023-11-08T15:22:50.837] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T16:36:18.686] [INFO] Bot - STOP
+[2023-11-08T16:41:01.847] [INFO] Bot - STOP
+[2023-11-08T16:45:47.721] [INFO] Bot - STOP
+[2023-11-08T16:48:46.513] [INFO] Bot - User: id 2138717005 nickname annazhdanova_psy registered
+[2023-11-08T16:48:46.518] [INFO] Button /start pushed - chatId: -1002080067508
+[2023-11-08T16:52:14.852] [ERROR] Bot - TypeError: Cannot read properties of null (reading 'freeLimit')
+    at checkUserCanMakeQuery (/Users/e.shipko/devel/bot/user.ts:38:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /Users/e.shipko/devel/bot/index.ts:60:30
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+[2023-11-08T16:53:20.660] [INFO] Bot - STOP
+[2023-11-08T16:54:20.978] [INFO] Bot - User: id 424608053 nickname evgenyship registered
+[2023-11-08T19:18:43.230] [INFO] Bot - STOP
+[2023-11-08T19:19:01.941] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T19:20:08.574] [INFO] Bot - STOP
+[2023-11-08T19:20:29.052] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T19:25:20.430] [INFO] Bot - STOP
+[2023-11-08T19:25:57.652] [INFO] Bot - STOP
+[2023-11-08T19:28:16.216] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T19:30:03.223] [INFO] Bot - STOP
+[2023-11-08T19:34:46.216] [INFO] Bot - STOP
+[2023-11-08T19:57:28.228] [INFO] Bot - STOP
+[2023-11-08T19:57:44.684] [ERROR] Bot - ReferenceError: await is not defined
+    at /Users/e.shipko/devel/bot/index.ts:85:24
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:336:28
+    at /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:162:111
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+[2023-11-08T19:58:07.460] [INFO] Bot - STOP
+[2023-11-08T19:59:15.036] [INFO] Bot - STOP
+[2023-11-08T20:30:13.900] [INFO] Bot - STOP
+[2023-11-08T20:30:37.975] [ERROR] Bot - ReferenceError: Commands is not defined
+    at /Users/e.shipko/devel/bot/src/index.ts:53:20
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/session.js:97:13
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+[2023-11-08T20:31:06.306] [INFO] Bot - STOP
+[2023-11-08T20:31:15.614] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T20:32:21.968] [INFO] Bot - STOP
+[2023-11-08T20:33:40.214] [INFO] Bot - STOP
+[2023-11-08T20:34:06.698] [INFO] Bot - STOP
+[2023-11-08T20:59:37.231] [INFO] Bot - STOP
+[2023-11-08T21:00:06.735] [ERROR] Bot - TypeError: Cannot read properties of undefined (reading 'hide')
+    at filterFunction (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:181:33)
+    at Array.filter (<anonymous>)
+    at Keyboard.make (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:198:31)
+    at Function.make (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:277:31)
+    at /Users/e.shipko/devel/bot/src/index.ts:52:31
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+[2023-11-08T21:02:12.861] [INFO] Bot - STOP
+[2023-11-08T21:02:30.921] [ERROR] Bot - TypeError: Cannot read properties of undefined (reading 'hide')
+    at filterFunction (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:181:33)
+    at Array.filter (<anonymous>)
+    at Keyboard.make (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:198:31)
+    at Function.make (/Users/e.shipko/devel/bot/node_modules/telegram-keyboard/lib/keyboard.js:277:31)
+    at /Users/e.shipko/devel/bot/src/index.ts:52:31
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+[2023-11-08T21:08:14.808] [INFO] Bot - STOP
+[2023-11-08T21:08:21.215] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:11:01.000] [INFO] Bot - STOP
+[2023-11-08T21:11:09.264] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:14:03.950] [INFO] Bot - STOP
+[2023-11-08T21:15:35.705] [INFO] Bot - STOP
+[2023-11-08T21:15:45.493] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:23:55.745] [INFO] Bot - STOP
+[2023-11-08T21:24:11.637] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:24:20.825] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:24:26.046] [INFO] Bot - STOP
+[2023-11-08T21:24:35.553] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:25:04.956] [INFO] Bot - STOP
+[2023-11-08T21:25:14.548] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:27:36.000] [INFO] Bot - STOP
+[2023-11-08T21:27:57.040] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:28:46.981] [INFO] Bot - STOP
+[2023-11-08T21:28:53.013] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T21:36:17.833] [INFO] Bot - STOP
+[2023-11-08T21:36:49.466] [ERROR] Bot - InternalServerError: 502 Bad gateway.
+    at Function.generate (/Users/e.shipko/devel/bot/node_modules/openai/src/error.ts:94:14)
+    at OpenAI.makeStatusError (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:358:21)
+    at OpenAI.makeRequest (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:416:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async askGpt (/Users/e.shipko/devel/bot/src/utils/gpt.ts:29:24)
+    at async /Users/e.shipko/devel/bot/src/index.ts:98:35
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  status: 502,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0',
+    'cf-ray': '822e8cd60c4c3a55-DME',
+    connection: 'keep-alive',
+    'content-length': '84',
+    'content-type': 'application/json',
+    date: 'Wed, 08 Nov 2023 14:36:49 GMT',
+    expires: 'Thu, 01 Jan 1970 00:00:01 GMT',
+    'referrer-policy': 'same-origin',
+    server: 'cloudflare',
+    'x-frame-options': 'SAMEORIGIN'
+  },
+  error: {
+    code: 502,
+    message: 'Bad gateway.',
+    param: null,
+    type: 'cf_bad_gateway'
+  },
+  code: 502,
+  param: null,
+  type: 'cf_bad_gateway'
+}
+[2023-11-08T21:38:56.010] [INFO] Bot - STOP
+[2023-11-08T21:39:47.998] [ERROR] Bot - InternalServerError: 502 Bad gateway.
+    at Function.generate (/Users/e.shipko/devel/bot/node_modules/openai/src/error.ts:94:14)
+    at OpenAI.makeStatusError (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:358:21)
+    at OpenAI.makeRequest (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:416:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async askGpt (/Users/e.shipko/devel/bot/src/utils/gpt.ts:29:24)
+    at async /Users/e.shipko/devel/bot/src/index.ts:98:35
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  status: 502,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0',
+    'cf-ray': '822e91270e457a79-DME',
+    connection: 'keep-alive',
+    'content-length': '84',
+    'content-type': 'application/json',
+    date: 'Wed, 08 Nov 2023 14:39:48 GMT',
+    expires: 'Thu, 01 Jan 1970 00:00:01 GMT',
+    'referrer-policy': 'same-origin',
+    server: 'cloudflare',
+    'x-frame-options': 'SAMEORIGIN'
+  },
+  error: {
+    code: 502,
+    message: 'Bad gateway.',
+    param: null,
+    type: 'cf_bad_gateway'
+  },
+  code: 502,
+  param: null,
+  type: 'cf_bad_gateway'
+}
+[2023-11-08T21:41:52.009] [ERROR] Bot - InternalServerError: 503 Service Unavailable.
+    at Function.generate (/Users/e.shipko/devel/bot/node_modules/openai/src/error.ts:94:14)
+    at OpenAI.makeStatusError (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:358:21)
+    at OpenAI.makeRequest (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:416:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async askGpt (/Users/e.shipko/devel/bot/src/utils/gpt.ts:29:24)
+    at async /Users/e.shipko/devel/bot/src/index.ts:98:35
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  status: 503,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0',
+    'cf-ray': '822e94433ca04d90-DME',
+    connection: 'keep-alive',
+    'content-length': '100',
+    'content-type': 'application/json',
+    date: 'Wed, 08 Nov 2023 14:41:50 GMT',
+    expires: 'Thu, 01 Jan 1970 00:00:01 GMT',
+    'referrer-policy': 'same-origin',
+    server: 'cloudflare',
+    'x-frame-options': 'SAMEORIGIN'
+  },
+  error: {
+    code: 503,
+    message: 'Service Unavailable.',
+    param: null,
+    type: 'cf_service_unavailable'
+  },
+  code: 503,
+  param: null,
+  type: 'cf_service_unavailable'
+}
+[2023-11-08T21:43:29.003] [ERROR] Bot - InternalServerError: 503 Service Unavailable.
+    at Function.generate (/Users/e.shipko/devel/bot/node_modules/openai/src/error.ts:94:14)
+    at OpenAI.makeStatusError (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:358:21)
+    at OpenAI.makeRequest (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:416:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async askGpt (/Users/e.shipko/devel/bot/src/utils/gpt.ts:29:24)
+    at async /Users/e.shipko/devel/bot/src/index.ts:98:35
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  status: 503,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0',
+    'cf-ray': '822e96a899d29d8d-DME',
+    connection: 'keep-alive',
+    'content-length': '100',
+    'content-type': 'application/json',
+    date: 'Wed, 08 Nov 2023 14:43:28 GMT',
+    expires: 'Thu, 01 Jan 1970 00:00:01 GMT',
+    'referrer-policy': 'same-origin',
+    server: 'cloudflare',
+    'x-frame-options': 'SAMEORIGIN'
+  },
+  error: {
+    code: 503,
+    message: 'Service Unavailable.',
+    param: null,
+    type: 'cf_service_unavailable'
+  },
+  code: 503,
+  param: null,
+  type: 'cf_service_unavailable'
+}
+[2023-11-08T22:38:48.141] [INFO] Bot - STOP
+[2023-11-08T22:39:06.300] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T22:48:08.620] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T22:50:18.088] [INFO] Bot - STOP
+[2023-11-08T22:51:27.286] [INFO] Bot - STOP
+[2023-11-08T22:54:50.053] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T23:03:17.062] [INFO] Button /start pushed - chatId: -1002080067508
+[2023-11-08T23:46:17.981] [INFO] Bot - STOP
+[2023-11-08T23:46:59.894] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T23:51:46.575] [INFO] Bot - User: id: 424608053, nickname: evgenyship registered
+[2023-11-08T23:51:46.576] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-08T23:57:04.233] [INFO] Bot - STOP
+[2023-11-08T23:58:00.808] [INFO] Bot - STOP
+[2023-11-08T23:59:16.667] [INFO] Bot - STOP
+[2023-11-08T23:59:56.164] [INFO] Bot - STOP
+[2023-11-09T00:02:24.231] [INFO] Bot - STOP
+[2023-11-09T00:02:32.997] [ERROR] Bot - QueryFailedError: duplicate key value violates unique constraint "UQ_9793d2defd72fffdb9a55c0d88f"
+    at PostgresQueryRunner.query (/Users/e.shipko/devel/bot/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:299:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async InsertQueryBuilder.execute (/Users/e.shipko/devel/bot/node_modules/src/query-builder/InsertQueryBuilder.ts:163:33)
+    at async SubjectExecutor.executeInsertOperations (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:434:42)
+    at async SubjectExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:137:9)
+    at async EntityPersistExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/EntityPersistExecutor.ts:182:21)
+    at async createUserIfNotExist (/Users/e.shipko/devel/bot/src/utils/user.ts:16:9)
+    at async /Users/e.shipko/devel/bot/src/index.ts:44:5
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  query: 'INSERT INTO "users"("uuid", "tg_id", "nickname", "first_name", "last_name", "free_limit", "subscription_until", "date_create", "date_update", "date_delete") VALUES (DEFAULT, $1, $2, $3, $4, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING "uuid", "free_limit", "subscription_until", "date_create", "date_update", "date_delete"',
+  parameters: [ '424608053', 'evgenyship', 'Evgeny', 'Shipko' ],
+  driverError: error: duplicate key value violates unique constraint "UQ_9793d2defd72fffdb9a55c0d88f"
+      at /Users/e.shipko/devel/bot/node_modules/pg/lib/client.js:526:17
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async PostgresQueryRunner.query (/Users/e.shipko/devel/bot/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:249:25)
+      at async InsertQueryBuilder.execute (/Users/e.shipko/devel/bot/node_modules/src/query-builder/InsertQueryBuilder.ts:163:33)
+      at async SubjectExecutor.executeInsertOperations (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:434:42)
+      at async SubjectExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:137:9)
+      at async EntityPersistExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/EntityPersistExecutor.ts:182:21)
+      at async createUserIfNotExist (/Users/e.shipko/devel/bot/src/utils/user.ts:16:9)
+      at async /Users/e.shipko/devel/bot/src/index.ts:44:5
+      at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17) {
+    length: 231,
+    severity: 'ERROR',
+    code: '23505',
+    detail: 'Key (tg_id)=(424608053) already exists.',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'users',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'UQ_9793d2defd72fffdb9a55c0d88f',
+    file: 'nbtinsert.c',
+    line: '663',
+    routine: '_bt_check_unique'
+  },
+  length: 231,
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (tg_id)=(424608053) already exists.',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'users',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'UQ_9793d2defd72fffdb9a55c0d88f',
+  file: 'nbtinsert.c',
+  line: '663',
+  routine: '_bt_check_unique'
+}
+[2023-11-09T00:02:59.531] [INFO] Bot - STOP
+[2023-11-09T00:03:43.595] [INFO] Bot - User: id: 424608053, nickname: evgenyship registered
+[2023-11-09T00:03:43.600] [INFO] Button /start pushed - chatId: 424608053
+[2023-11-09T00:09:53.090] [ERROR] Bot - QueryFailedError: duplicate key value violates unique constraint "UQ_9793d2defd72fffdb9a55c0d88f"
+    at PostgresQueryRunner.query (/Users/e.shipko/devel/bot/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:299:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async InsertQueryBuilder.execute (/Users/e.shipko/devel/bot/node_modules/src/query-builder/InsertQueryBuilder.ts:163:33)
+    at async SubjectExecutor.executeInsertOperations (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:434:42)
+    at async SubjectExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:137:9)
+    at async EntityPersistExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/EntityPersistExecutor.ts:182:21)
+    at async createUserIfNotExist (/Users/e.shipko/devel/bot/src/utils/user.ts:16:9)
+    at async /Users/e.shipko/devel/bot/src/index.ts:44:5
+    at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17)
+    at async /Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:502:21 {
+  query: 'INSERT INTO "users"("uuid", "tg_id", "nickname", "first_name", "last_name", "free_limit", "subscription_until", "date_create", "date_update", "date_delete") VALUES (DEFAULT, $1, $2, $3, $4, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT) RETURNING "uuid", "free_limit", "subscription_until", "date_create", "date_update", "date_delete"',
+  parameters: [ '424608053', 'evgenyship', 'Evgeny', 'Shipko' ],
+  driverError: error: duplicate key value violates unique constraint "UQ_9793d2defd72fffdb9a55c0d88f"
+      at /Users/e.shipko/devel/bot/node_modules/pg/lib/client.js:526:17
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async PostgresQueryRunner.query (/Users/e.shipko/devel/bot/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:249:25)
+      at async InsertQueryBuilder.execute (/Users/e.shipko/devel/bot/node_modules/src/query-builder/InsertQueryBuilder.ts:163:33)
+      at async SubjectExecutor.executeInsertOperations (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:434:42)
+      at async SubjectExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/SubjectExecutor.ts:137:9)
+      at async EntityPersistExecutor.execute (/Users/e.shipko/devel/bot/node_modules/src/persistence/EntityPersistExecutor.ts:182:21)
+      at async createUserIfNotExist (/Users/e.shipko/devel/bot/src/utils/user.ts:16:9)
+      at async /Users/e.shipko/devel/bot/src/index.ts:44:5
+      at async execute (/Users/e.shipko/devel/bot/node_modules/telegraf/lib/composer.js:501:17) {
+    length: 231,
+    severity: 'ERROR',
+    code: '23505',
+    detail: 'Key (tg_id)=(424608053) already exists.',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'users',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'UQ_9793d2defd72fffdb9a55c0d88f',
+    file: 'nbtinsert.c',
+    line: '663',
+    routine: '_bt_check_unique'
+  },
+  length: 231,
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (tg_id)=(424608053) already exists.',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'users',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'UQ_9793d2defd72fffdb9a55c0d88f',
+  file: 'nbtinsert.c',
+  line: '663',
+  routine: '_bt_check_unique'
+}
