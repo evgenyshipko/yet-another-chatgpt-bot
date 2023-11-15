@@ -1,12 +1,12 @@
-import {session, Telegraf} from 'telegraf';
+import {Telegraf} from 'telegraf';
 import * as dotenv from 'dotenv';
-import {logBotError, logBotInfo, logButtonPush} from './utils/logs';
+import {logError, logInfo} from './utils/logs';
 import {configure} from 'log4js';
-import {createUserIfNotExist} from "./utils/user";
 import dataSource from "./db/ormconfig";
-import {Keyboard} from "telegram-keyboard";
-import {buyHandler, clearContextHandler, Commands, helpHandler, profileHandler} from "./commands";
-import {messageHandler} from "./main";
+import {messageHandler} from "./handlers/messageHandler";
+// import {Redis} from "@telegraf/session/redis";
+import {commandHandler} from "./handlers/commandHandler";
+import {startHandler} from "./handlers/startHandler";
 
 (async () => {
   dotenv.config();
@@ -31,42 +31,16 @@ import {messageHandler} from "./main";
     bot.options.username = botInfo.username
   })
 
-  // TODO: разобраться с тем, что делают сессии
-  bot.use(session());
+  // TODO: разобраться зачем нужны сессии
+  // const store = Redis({
+  //   url: process.env.REDIS_URL,
+  // });
+  //
+  // bot.use(session({store}));
 
-  bot.start(async (ctx) => {
-    const tgUser = ctx.update.message.from;
-
-    if (tgUser.is_bot){
-      return;
-    }
-
-    await createUserIfNotExist({
-      tgId: tgUser.id,
-      nickname: tgUser.username,
-      firstName: tgUser.first_name,
-      lastName: tgUser.last_name
-    })
-
-    const keyboard = Keyboard.make([
-        Commands.BUY,
-        Commands.PROFILE,
-        Commands.HELP,
-        Commands.RESET_CONTEXT,
-      // @ts-ignore
-    ], {wrap: (row, index, button) => [1, 3].includes(index)})
-
-    logButtonPush('/start', ctx.chat.id);
-    ctx.reply('Добро пожаловать! Просто пишите в чат, gpt-ассистент будет вам отвечать 😊', keyboard.reply())
-  });
-
-  //слушаем команды клавиатуры
-  helpHandler(bot)
-  buyHandler(bot)
-  profileHandler(bot)
-  clearContextHandler(bot)
-
-  //хэндлер обработки сообщений (основная логика)
+  //хэндлеры обработки сообщений и команд (основная логика)
+  startHandler(bot)
+  commandHandler(bot)
   messageHandler(bot)
 
   // запуск бота
@@ -74,7 +48,7 @@ import {messageHandler} from "./main";
 
   // ловим ошибки
   bot.catch((err, ctx) => {
-    logBotError(err);
+    logError(err);
     ctx.reply('Что-то пошло не так, попробуйте снова!');
   });
 
@@ -82,7 +56,7 @@ import {messageHandler} from "./main";
   for (const signal of ['SIGTERM', 'SIGINT']) {
     process.once(signal, () => {
       bot.stop(signal);
-      logBotInfo('STOP');
+      logInfo('STOP');
     });
   }
 })();

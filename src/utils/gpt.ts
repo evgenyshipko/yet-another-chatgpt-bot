@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import * as dotenv from 'dotenv';
-import {Messages} from "./utils";
+import {contextStorage} from "./redisStorage";
+import {calcTokens, context, gptMessage} from "./context";
 
 dotenv.config();
 
@@ -12,30 +13,31 @@ export enum GptRoles {
     ASSISTANT = 'assistant'
 }
 
-const gptMessage = (role: GptRoles, content: string) => ({ role, content })
-const getInitialMessage = () => gptMessage(GptRoles.SYSTEM, "You are a helpful assistant, which tries to make short answers")
-
-const context: Record<string, Messages> = {}
 export const askGpt = async (chatId: number, text: string) => {
 
-    const newMessage = gptMessage(GptRoles.USER, text)
+    const contextArr = await context.get(chatId)
 
-    if (!context[chatId]){
-        context[chatId] = [getInitialMessage()]
-    }
+    contextArr.push(gptMessage(GptRoles.USER, text))
 
-    context[chatId].push(newMessage)
 
+    // TODO: добавить ретраи после какого-то времени ожидания
     const completion = await openai.chat.completions.create({
-        messages: context[chatId],
+        messages: contextArr,
         model: process.env.GPT_VERSION,
     });
 
     const result = completion.choices[0].message.content as string;
-    context[chatId].push(gptMessage(GptRoles.ASSISTANT, result))
+
+    contextArr.push(gptMessage(GptRoles.ASSISTANT, result))
+
+    await context.save(chatId, contextArr)
+
+    console.log('usage: ', completion.usage.total_tokens, ',calc: ', calcTokens(contextArr))
+
+
     return {text: result, usage: completion.usage.total_tokens}
 }
 
-export const clearContext = (chatId: number) => {
-    delete context[chatId];
+export const clearContext = async (chatId: number) => {
+    await contextStorage.drop({chatId, userId: chatId})
 }

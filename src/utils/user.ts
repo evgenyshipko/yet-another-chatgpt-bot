@@ -1,6 +1,6 @@
 import {getRepository} from "../db/ormconfig";
 import {UserEntity} from "../db/entities/user.entity";
-import {logBotInfo} from "./logs";
+import {logInfo} from "./logs";
 
 const userRepo = getRepository(UserEntity);
 
@@ -14,10 +14,11 @@ export const createUserIfNotExist = async (user: CreateUser) => {
     const userData = await userRepo.findOne({where: {tgId: user.tgId.toString()}})
     if (!userData){
         await userRepo.save({...user, tgId: user.tgId.toString()})
-        logBotInfo(`User: id: ${user.tgId}, nickname: ${user.nickname} registered`)
+        logInfo(`User: id: ${user.tgId}, nickname: ${user.nickname} registered`)
     }
 }
 
+//TODO: платные подписки в отдельную базу
 export const userHasPaidSubscription = (user: UserEntity) => {
     return user.subscriptionUntil && user.subscriptionUntil > new Date()
 }

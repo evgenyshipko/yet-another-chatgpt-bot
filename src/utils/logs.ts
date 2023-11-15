@@ -7,10 +7,10 @@ const getLocalLogger = (category, level) => {
   return logger;
 };
 
-export const logBotInfo = (message, ...args) =>
+export const logInfo = (message, ...args) =>
   getLocalLogger('Bot', 'info').info(message, ...args);
 
-export const logBotError = (message, ...args) =>
+export const logError = (message, ...args) =>
   getLocalLogger('Bot', 'error').error(message, ...args);
 
 export const logButtonPush = (button, chatId, ...args) =>
