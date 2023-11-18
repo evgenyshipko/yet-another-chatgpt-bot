@@ -1,11 +1,12 @@
 import {getUser, userHasPaidSubscription} from "../utils/user";
-import {clearContext} from "../utils/gpt";
+import {gpt} from "../utils/gpt";
 import * as fs from "fs";
 import * as path from "path";
 import {formatDate} from "../utils/utils";
 import {CommandsQueueData} from "../queues";
-import {ParseMode, sendMessageToTg} from "../utils/telegram";
+import {ParseMode, telegramApi} from "../utils/telegramApi";
 import {throttlingStorage} from "../utils/redisStorage";
+import {log} from "../utils/logs";
 
 export enum Command {
     PROFILE= "👤Профиль",
@@ -25,22 +26,27 @@ export enum BotCommands {
 }
 
 export const helpHandler = async (data: CommandsQueueData) => {
-    // TODO: считывать из кеша, чтоб не руинить скорость
-    const text = fs.readFileSync(path.join(__dirname, '../../public/help.txt'), 'utf-8');
-    await sendMessageToTg(data.chatId, text)
+    const time1 = performance.now()
+    // асинхронно считываем файл чтоб не блокировать поток
+    fs.readFile(path.join(__dirname, '../../public/help.txt'), 'utf-8', (err, text) => {
+            const time2 = performance.now()
+            log.info(`read file from disc: ${time2-time1}`)
+            telegramApi.sendMessage(data.chatId, text)
+        }
+    );
 }
 
 export const buyHandler = async (data: CommandsQueueData) => {
     const text = 'Для приобретения месячной премиум-подписки пишите администратору бота @evgenyship' +
         '\nСтоимость премиум-подписки 500 рублей/мес'
-    await sendMessageToTg(data.chatId, text, ParseMode.MARKDOWN)
+    await telegramApi.sendMessage(data.chatId, text, ParseMode.MARKDOWN)
 }
 
 export const profileHandler = async (data: CommandsQueueData) => {
     const userEntity = await getUser(data.user.id)
     if (!userEntity){
         const text = "Для того, чтобы получить информацию о профиле нужно сначала пообщаться с ботом или нажать /start"
-        await sendMessageToTg(data.chatId, text, ParseMode.MARKDOWN)
+        await telegramApi.sendMessage(data.chatId, text, ParseMode.MARKDOWN)
         return
     }
 
@@ -49,11 +55,11 @@ export const profileHandler = async (data: CommandsQueueData) => {
 
     const message = `ID: ${tgId} \nЮзернейм: ${nickname} \nПодписка: ${hasPaidSubscription ? "премиум" : "бесплатная"}
     ${!hasPaidSubscription ? `\nЛимит запросов: ${freeLimit} / 10` : `\nДата окончания подписки :${formatDate(subscriptionUntil)}`}`
-    await sendMessageToTg(data.chatId, message, ParseMode.MARKDOWN)
+    await telegramApi.sendMessage(data.chatId, message, ParseMode.MARKDOWN)
 }
 
 export const resetContextHandler = async (data: CommandsQueueData) => {
-    await clearContext(data.chatId)
+    await gpt.clearContext(data.chatId)
     await throttlingStorage.drop({chatId: data.chatId, userId: data.user.id})
-    await sendMessageToTg(data.chatId,'Контекст очищен успешно!')
+    await telegramApi.sendMessage(data.chatId,'Контекст очищен успешно!')
 }

@@ -2,8 +2,6 @@ import {contextStorage} from "./redisStorage";
 import {encoding_for_model, TiktokenModel} from "tiktoken";
 import {GptRoles} from "./gpt";
 
-console.log('CONTEXT.ts', process.env.GPT_VERSION)
-
 enum ChatGpt {
     GPT_3_5_TURBO = 'gpt-3.5-turbo',
     GPT_4 = 'gpt-4'
@@ -13,8 +11,6 @@ const ChatGptLimits = {
     [ChatGpt.GPT_3_5_TURBO]: 4096,
     [ChatGpt.GPT_4] : 8192
 }
-
-console.log('limit',ChatGptLimits[process.env.GPT_VERSION] - 3500)
 
 export type Messages = Array<{content: string, role: GptRoles}>
 export const gptMessage = (role: GptRoles, content: string) => ({ role, content })

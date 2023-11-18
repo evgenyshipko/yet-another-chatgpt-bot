@@ -2,7 +2,6 @@ import {Context, Telegraf} from "telegraf";
 import {createUserIfNotExist} from "../utils/user";
 import {Keyboard} from "telegram-keyboard";
 import {Command} from "./command";
-import {logButtonPush} from "../utils/logs";
 
 export const startHandler = (bot:Telegraf<Context>) => bot.start(async (ctx) => {
 
@@ -27,6 +26,5 @@ export const startHandler = (bot:Telegraf<Context>) => bot.start(async (ctx) => 
         // @ts-ignore
     ], {wrap: (row, index, button) => [1, 3].includes(index)})
 
-    logButtonPush('/start', ctx.chat.id);
     ctx.reply('Добро пожаловать! Просто пишите в чат, gpt-ассистент будет вам отвечать 😊', keyboard.reply())
 });

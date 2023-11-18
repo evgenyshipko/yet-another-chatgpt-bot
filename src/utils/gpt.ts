@@ -13,31 +13,41 @@ export enum GptRoles {
     ASSISTANT = 'assistant'
 }
 
-export const askGpt = async (chatId: number, text: string) => {
+const ask = async (chatId: number, text: string) => {
 
     const contextArr = await context.get(chatId)
 
     contextArr.push(gptMessage(GptRoles.USER, text))
 
 
-    // TODO: добавить ретраи после какого-то времени ожидания
-    const completion = await openai.chat.completions.create({
+    const rejectPromise = new Promise<OpenAI.Chat.Completions.ChatCompletion>((resolve, reject) => {
+        setTimeout(() => reject('Timeout exceed'), 20000)
+    })
+
+    const completionPromise = openai.chat.completions.create({
         messages: contextArr,
         model: process.env.GPT_VERSION,
     });
 
-    const result = completion.choices[0].message.content as string;
+    // TODO: добавить ретраи
+    // TODO: в трай-кэтч написать мимимишное сообщение
+    const res = await Promise.race([completionPromise, rejectPromise])
+
+    const result = res.choices[0].message.content as string;
 
     contextArr.push(gptMessage(GptRoles.ASSISTANT, result))
 
     await context.save(chatId, contextArr)
 
-    console.log('usage: ', completion.usage.total_tokens, ',calc: ', calcTokens(contextArr))
+    console.log('usage: ', res.usage.total_tokens, ',calc: ', calcTokens(contextArr))
 
-
-    return {text: result, usage: completion.usage.total_tokens}
+    return {text: result, usage: res.usage.total_tokens}
 }
 
-export const clearContext = async (chatId: number) => {
+const clearContext = async (chatId: number) => {
     await contextStorage.drop({chatId, userId: chatId})
+}
+
+export const gpt = {
+    ask, clearContext
 }

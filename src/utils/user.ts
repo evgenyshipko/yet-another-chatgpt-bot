@@ -1,6 +1,6 @@
 import {getRepository} from "../db/ormconfig";
 import {UserEntity} from "../db/entities/user.entity";
-import {logInfo} from "./logs";
+import {log} from "./logs";
 
 const userRepo = getRepository(UserEntity);
 
@@ -14,7 +14,7 @@ export const createUserIfNotExist = async (user: CreateUser) => {
     const userData = await userRepo.findOne({where: {tgId: user.tgId.toString()}})
     if (!userData){
         await userRepo.save({...user, tgId: user.tgId.toString()})
-        logInfo(`User: id: ${user.tgId}, nickname: ${user.nickname} registered`)
+        log.info(`User: id: ${user.tgId}, nickname: ${user.nickname} registered`)
     }
 }
 

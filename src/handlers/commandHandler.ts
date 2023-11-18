@@ -1,7 +1,7 @@
 import {Context, Telegraf} from "telegraf";
 import {BotCommands, Command} from "./command";
 import {getCommandsQueue} from "../queues";
-import {logInfo} from "../utils/logs";
+import {log} from "../utils/logs";
 
 export const commandHandler = (bot:Telegraf<Context>) =>
     bot.hears([...Object.values(BotCommands), ...Object.values(Command)], async (ctx) => {
@@ -25,5 +25,5 @@ export const commandHandler = (bot:Telegraf<Context>) =>
                 firstName: tgUser.first_name,
                 lastName: tgUser.last_name
             }
-        }).then(() => logInfo(`Message from user_id: ${tgUser.id}, chat_id: ${chatId} added to command queue`))
+        }).then(() => log.info(`Message from user_id: ${tgUser.id}, chat_id: ${chatId} added to command queue`))
 })

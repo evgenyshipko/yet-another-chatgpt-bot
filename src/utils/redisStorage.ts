@@ -1,10 +1,11 @@
 import {createClient} from 'redis';
 import * as process from "process";
+import {log} from "./logs";
 
 let redis;
 
 const initRedis = async () => {redis = await createClient({url: process.env.REDIS_URL})
-    .on('error', err => console.log('Redis Client Error', err))
+    .on('error', err => log.error('Redis Client Error', err))
     .connect()};
 
 initRedis()
@@ -55,5 +56,3 @@ export const throttlingStorage = createRedisStorage('throttling')
 export const sessionStorage = createRedisStorage('session')
 
 export const contextStorage = createRedisStorage('context')
-
-export const helpRedisStorage = createRedisStorage('help')

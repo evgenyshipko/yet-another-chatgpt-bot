@@ -1,8 +1,7 @@
 import {Context, Telegraf} from "telegraf";
 import {message} from "telegraf/filters";
 import {getMessageQueue} from "../queues";
-import {logInfo} from "../utils/logs";
-import {throttlingStorage} from "../utils/redisStorage";
+import {log} from "../utils/logs";
 
 export const messageHandler = (bot:Telegraf<Context>) => bot.on(message("text"), (ctx) => {
     const chatId = ctx.message.chat.id;
@@ -24,6 +23,6 @@ export const messageHandler = (bot:Telegraf<Context>) => bot.on(message("text"),
             firstName: tgUser.first_name,
             lastName: tgUser.last_name
         }
-    }).then(() => logInfo(`Message from user_id: ${tgUser.id}, chat_id: ${chatId} added to message queue, message: ${userMessage}`)
+    }).then(() => log.info(`Message from user_id: ${tgUser.id}, chat_id: ${chatId} added to message queue, message: ${userMessage}`)
     )
 });

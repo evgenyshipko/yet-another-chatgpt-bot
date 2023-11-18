@@ -2,11 +2,16 @@ import * as dotenv from "dotenv";
 import {getCommandsQueue, getMessageQueue} from "../queues";
 import dataSource from "../db/ormconfig";
 import {BotCommands, buyHandler, Command, helpHandler, profileHandler, resetContextHandler} from "../handlers/command";
-import {logError} from "../utils/logs";
-import {sendMessageToTg} from "../utils/telegram";
+import {telegramApi} from "../utils/telegramApi";
+import {log} from "../utils/logs";
 
 (async () => {
+
+    process.title = 'Bot: commands worker'
+
     dotenv.config()
+
+    log.init()
 
     const queue = getCommandsQueue()
 
@@ -30,11 +35,11 @@ import {sendMessageToTg} from "../utils/telegram";
 
             done();
         }catch (e){
-            logError(e)
-            await sendMessageToTg(job.data.chatId, 'Что-то пошло не так, попробуйте снова!')
+            log.error(e)
+            await telegramApi.sendMessage(job.data.chatId, 'Что-то пошло не так, попробуйте снова!')
             done();
         }
     })
 
-    console.log('Commands worker started successfully!')
+    log.info('Commands worker started successfully!')
 })()
