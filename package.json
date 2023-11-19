@@ -12,7 +12,7 @@
     "database:refill": "npm run schema:drop && npm run migration:run",
     "schema:drop": "npm run typeorm -- schema:drop --dataSource=src/db/ormconfig.ts",
     "migration:run": "npm run typeorm -- migration:run --dataSource=src/db/ormconfig.ts",
-    "migration:generate": "npm run typeorm -- migration:generate src/db/migrations/$npm_config_name --dataSource=db/ormconfig.ts",
+    "migration:generate": "npm run typeorm -- migration:generate src/db/migrations/$npm_config_name --dataSource=src/db/ormconfig.ts",
     "migration:create": "npm run typeorm -- migration:create src/db/migrations/$npm_config_name",
     "postgres:create": "docker run -d --name gpt -p 5435:5432 -e POSTGRES_PASSWORD=gpt_pass -e POSTGRES_USER=gpt -e POSTGRES_DB=gpt postgres",
     "redis:create": "docker run -d --name redis-test -p 6379:6379 redis"

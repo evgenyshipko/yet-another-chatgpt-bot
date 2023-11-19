@@ -1,5 +1,5 @@
 import {Context, Telegraf} from "telegraf";
-import {createUserIfNotExist} from "../utils/user";
+import {user} from "../utils/user";
 import {Keyboard} from "telegram-keyboard";
 import {Command} from "./command";
 
@@ -11,7 +11,7 @@ export const startHandler = (bot:Telegraf<Context>) => bot.start(async (ctx) => 
         return;
     }
 
-    await createUserIfNotExist({
+    await user.checkSession({
         tgId: tgUser.id,
         nickname: tgUser.username,
         firstName: tgUser.first_name,

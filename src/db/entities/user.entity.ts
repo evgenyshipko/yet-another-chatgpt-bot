@@ -37,12 +37,9 @@ export class UserEntity {
     @Column({
         type: "integer",
         nullable: false,
-        default: 10,
+        default: 30,
     })
     freeLimit?: number
-
-    @DeleteDateColumn({ type: "timestamp with time zone" })
-    subscriptionUntil?: Date;
 
     @CreateDateColumn({ type: "timestamp with time zone", nullable: false })
     dateCreate?: Date;

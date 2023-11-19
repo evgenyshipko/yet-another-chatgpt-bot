@@ -20,7 +20,7 @@ export const calcTokens = (messages: Messages) => messages.reduce((acc,curr) => 
 }, 0)
 
 const trimContext = (messages: Messages) => {
-    if (calcTokens(messages) >= ChatGptLimits[process.env.GPT_VERSION] - 3500){
+    if (calcTokens(messages) >= ChatGptLimits[process.env.GPT_VERSION] - 2500){
         return messages.filter((val, index) => ![1,2].includes(index))
     }
     return messages
@@ -36,4 +36,9 @@ const get = async (chatId: string | number) => {
     const context = await contextStorage.get({chatId, userId:chatId}) || [getInitialMessage()]
     return trimContext(context)
 }
-export const context = { save, get }
+
+const clear = async (chatId: number) => {
+    await contextStorage.drop({chatId, userId: chatId})
+}
+
+export const context = { save, get, clear }

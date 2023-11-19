@@ -1,6 +1,5 @@
 import OpenAI from "openai";
 import * as dotenv from 'dotenv';
-import {contextStorage} from "./redisStorage";
 import {calcTokens, context, gptMessage} from "./context";
 
 dotenv.config();
@@ -44,10 +43,6 @@ const ask = async (chatId: number, text: string) => {
     return {text: result, usage: res.usage.total_tokens}
 }
 
-const clearContext = async (chatId: number) => {
-    await contextStorage.drop({chatId, userId: chatId})
-}
-
 export const gpt = {
-    ask, clearContext
+    ask
 }

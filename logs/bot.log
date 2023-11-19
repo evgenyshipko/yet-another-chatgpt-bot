@@ -685,3 +685,131 @@
 [2023-11-16T00:26:00.854] [INFO] Bot - Message from user_id: 424608053, chat_id: 424608053 added to message queue, message: I want to retry some Promise if it exceed some time limit. Write code on javascript
 [2023-11-16T00:26:06.411] [INFO] Bot - Message from user_id: 424608053, chat_id: 424608053 added to command queue
 [2023-11-16T00:26:10.892] [INFO] Bot - Message from user_id: 424608053, chat_id: 424608053 added to message queue, message: I want to retry some Promise if it exceed some time limit. Write code on javascript
+[2023-11-19T15:24:44.008] [INFO] Bot - Bot started successfully!
+[2023-11-19T15:24:48.832] [INFO] Bot - Message worker started successfully!
+[2023-11-19T15:24:50.833] [INFO] Bot - Commands worker started successfully!
+[2023-11-19T15:25:04.007] [INFO] Bot - Message from user_id: 424608053, chat_id: 424608053 added to message queue, message: test
+[2023-11-19T15:25:04.016] [INFO] Bot - Message received from user_id: 424608053, chat_id: 424608053, message: test
+[2023-11-19T15:25:04.066] [INFO] Bot - User: id: 424608053, nickname: evgenyship registered
+[2023-11-19T15:25:04.900] [ERROR] Bot - PermissionDeniedError: 403 <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css" />
+<!--[if lt IE 9]><link rel="stylesheet" id='cf_styles-ie-css' href="/cdn-cgi/styles/cf.errors.ie.css" /><![endif]-->
+<style>body{margin:0;padding:0}</style>
+
+
+<!--[if gte IE 10]><!-->
+<script>
+  if (!navigator.cookieEnabled) {
+    window.addEventListener('DOMContentLoaded', function () {
+      var cookieEl = document.getElementById('cookie-alert');
+      cookieEl.style.display = 'block';
+    })
+  }
+</script>
+<!--<![endif]-->
+
+
+</head>
+<body>
+  <div id="cf-wrapper">
+    <div class="cf-alert cf-alert-error cf-cookie-error" id="cookie-alert" data-translate="enable_cookies">Please enable cookies.</div>
+    <div id="cf-error-details" class="cf-error-details-wrapper">
+      <div class="cf-wrapper cf-header cf-error-overview">
+        <h1 data-translate="block_headline">Sorry, you have been blocked</h1>
+        <h2 class="cf-subheadline"><span data-translate="unable_to_access">You are unable to access</span> api.openai.com</h2>
+      </div><!-- /.header -->
+
+      <div class="cf-section cf-highlight">
+        <div class="cf-wrapper">
+          <div class="cf-screenshot-container cf-screenshot-full">
+            
+              <span class="cf-no-screenshot error"></span>
+            
+          </div>
+        </div>
+      </div><!-- /.captcha-container -->
+
+      <div class="cf-section cf-wrapper">
+        <div class="cf-columns two">
+          <div class="cf-column">
+            <h2 data-translate="blocked_why_headline">Why have I been blocked?</h2>
+
+            <p data-translate="blocked_why_detail">This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data.</p>
+          </div>
+
+          <div class="cf-column">
+            <h2 data-translate="blocked_resolve_headline">What can I do to resolve this?</h2>
+
+            <p data-translate="blocked_resolve_detail">You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.</p>
+          </div>
+        </div>
+      </div><!-- /.section -->
+
+      <div class="cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300">
+  <p class="text-13">
+    <span class="cf-footer-item sm:block sm:mb-1">Cloudflare Ray ID: <strong class="font-semibold">82870f7e89b4167e</strong></span>
+    <span class="cf-footer-separator sm:hidden">&bull;</span>
+    <span id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1">
+      Your IP:
+      <button type="button" id="cf-footer-ip-reveal" class="cf-footer-ip-reveal-btn">Click to reveal</button>
+      <span class="hidden" id="cf-footer-ip">37.193.142.197</span>
+      <span class="cf-footer-separator sm:hidden">&bull;</span>
+    </span>
+    <span class="cf-footer-item sm:block sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing" id="brand_link" target="_blank">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById("cf-footer-item-ip"),c=a.getElementById("cf-footer-ip-reveal");b&&"classList"in b&&(b.classList.remove("hidden"),c.addEventListener("click",function(){c.classList.add("hidden");a.getElementById("cf-footer-ip").classList.remove("hidden")}))}var a=document;document.addEventListener&&a.addEventListener("DOMContentLoaded",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div><!-- /#cf-error-details -->
+  </div><!-- /#cf-wrapper -->
+
+  <script>
+  window._cf_translation = {};
+  
+  
+</script>
+
+</body>
+</html>
+
+    at Function.generate (/Users/e.shipko/devel/bot/node_modules/openai/src/error.ts:74:14)
+    at OpenAI.makeStatusError (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:358:21)
+    at OpenAI.makeRequest (/Users/e.shipko/devel/bot/node_modules/openai/src/core.ts:416:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.ask (/Users/e.shipko/devel/bot/src/utils/gpt.ts:33:17)
+    at async Queue.<anonymous> (/Users/e.shipko/devel/bot/src/workers/messageWorker.ts:52:36) {
+  status: 403,
+  headers: {
+    'alt-svc': 'h3=":443"; ma=86400',
+    'cache-control': 'max-age=15',
+    'cf-ray': '82870f7e89b4167e-DME',
+    connection: 'keep-alive',
+    'content-encoding': 'gzip',
+    'content-type': 'text/html; charset=UTF-8',
+    date: 'Sun, 19 Nov 2023 08:25:05 GMT',
+    expires: 'Sun, 19 Nov 2023 08:25:20 GMT',
+    'referrer-policy': 'same-origin',
+    server: 'cloudflare',
+    'set-cookie': '__cf_bm=Et71uj8UsUSddDVAXxlHzV4khaPwF0hzwm9SlG.nVUM-1700382305-0-Ac/PiPyq1j/9eJQircDZvvTzsXMpNjkShGgtdz+NP3HpDz3V+fyOx4vPooGA/JkeqXmDQvA5r3M8JMjWBzNlnaU=; path=/; expires=Sun, 19-Nov-23 08:55:05 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'transfer-encoding': 'chunked',
+    vary: 'Accept-Encoding',
+    'x-frame-options': 'SAMEORIGIN'
+  },
+  error: undefined,
+  code: undefined,
+  param: undefined,
+  type: undefined
+}

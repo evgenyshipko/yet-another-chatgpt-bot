@@ -15,7 +15,7 @@ type Props = {chatId: string | number, userId: string | number}
 type SetProps = {value: unknown, expired?: number} & Props
 
 
-const getKey = (key, {chatId, userId}:Props) => `${key}:${chatId}:${userId}`
+const getKey = (key, {chatId, userId}:Props) =>  `${key}:${chatId}:${userId}`
 
 const set = (key: string) => async ({value, expired, userId, chatId}: SetProps) => {
     if (redis){
