@@ -3,6 +3,8 @@ import {user} from "../utils/user";
 import {Keyboard} from "telegram-keyboard";
 import {Command} from "./command";
 
+
+// TODO: вывести в очередь
 export const startHandler = (bot:Telegraf<Context>) => bot.start(async (ctx) => {
 
     const tgUser = ctx.update.message.from;

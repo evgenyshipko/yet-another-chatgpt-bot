@@ -6,6 +6,7 @@ import {SubscriptionEntity} from "../db/entities/subscription.entity";
 import {subscriptionEnd} from "./utils";
 
 const userRepo = getRepository(UserEntity);
+const subscriptionRepo = getRepository(SubscriptionEntity)
 
 type CreateUser = {
     tgId: number,
@@ -14,7 +15,7 @@ type CreateUser = {
     lastName?: string;
 }
 const getPaidSubscription = async (tgId: string) => {
-    const subscriptions = await getRepository(SubscriptionEntity).find(
+    const subscriptions = await subscriptionRepo.find(
         {where: {tgUserId: tgId}, order: {dateCreate: "DESC"}},
     )
     if (subscriptions && subscriptions.length > 0){
@@ -37,7 +38,8 @@ const decreaseFreeLimit = async (tgId: number) => {
 const canMakeQuery = async (tgId: number) => {
     const userData = await userRepo.findOne({where: {tgId: tgId.toString()}})
     const paidSubscription = await getPaidSubscription(userData.tgId)
-    return userData.freeLimit > 0 || paidSubscription
+    const canMakeQuery = userData.freeLimit > 0 || paidSubscription
+    return {canMakeQuery, freeLimit: userData.freeLimit > 0, paidSubscription }
 }
 
 const get = async (tgId: number) => {
@@ -57,6 +59,13 @@ const checkSession = async (user: CreateUser) => {
     }
 }
 
+const buySubscription = async (tgId: number) => {
+    const subscription = subscriptionRepo.create({
+        tgUserId: tgId.toString()
+    })
+    await subscriptionRepo.save(subscription)
+}
+
 export const user = {
-    get, canMakeQuery, decreaseFreeLimit, getPaidSubscription, checkSession
+    get, canMakeQuery, decreaseFreeLimit, getPaidSubscription, checkSession, buySubscription
 }

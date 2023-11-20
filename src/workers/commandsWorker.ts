@@ -4,6 +4,7 @@ import dataSource from "../db/ormconfig";
 import {BotCommands, buyHandler, Command, helpHandler, profileHandler, resetContextHandler} from "../handlers/command";
 import {telegramApi} from "../utils/telegramApi";
 import {log} from "../utils/logs";
+import {SOMETHING_WENT_WRONG} from "../text";
 
 (async () => {
 
@@ -36,7 +37,7 @@ import {log} from "../utils/logs";
             done();
         }catch (e){
             log.error(e)
-            await telegramApi.sendMessage(job.data.chatId, 'Что-то пошло не так, попробуйте снова!')
+            await telegramApi.sendMessage(job.data.chatId, SOMETHING_WENT_WRONG)
             done();
         }
     })

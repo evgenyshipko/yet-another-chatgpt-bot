@@ -1,5 +1,4 @@
 import {user} from "../utils/user";
-import {gpt} from "../utils/gpt";
 import * as fs from "fs";
 import * as path from "path";
 import {formatDate, subscriptionEnd} from "../utils/utils";
@@ -15,9 +14,6 @@ export enum Command {
     BUY = "🚀Купить премиум-подписку",
     RESET_CONTEXT = "🧹Сбросить контекст",
 }
-
-export const new_line = "%0A";
-
 export enum BotCommands {
     PROFILE= "/profile",
     HELP = "/help",
@@ -38,15 +34,29 @@ export const helpHandler = async (data: CommandsQueueData) => {
 }
 
 export const buyHandler = async (data: CommandsQueueData) => {
-    const text = 'Для приобретения месячной премиум-подписки пишите администратору бота @evgenyship' +
-        '\nСтоимость премиум-подписки 500 рублей/мес'
-    await telegramApi.sendMessage(data.chatId, text, ParseMode.MARKDOWN)
+    const subscription = await user.getPaidSubscription(data.user.id.toString())
+
+    if (subscription){
+        const text = `Месячная премиум-подписка уже действует! \nДата окончания: ${formatDate(subscriptionEnd(subscription.dateCreate))}`
+        await telegramApi.sendMessage(data.chatId, text)
+        return;
+    }
+
+    await telegramApi.sendInvoice({
+        chat_id: data.chatId,
+        currency: 'RUB',
+        description: 'Премиум подписка, которая позволяет безлимитно пользоваться ботом и открывает доступ к ChatGPT-4.\n' +
+            'Срок действия подписки с момента покупки - 1 месяц.',
+        title: 'Премиум-подписка',
+        prices: [{label: 'Премиум-подписка', amount: 499*100 /* 499 рублей */}],
+        payload: JSON.stringify({userId: data.user.id})
+    })
 }
 
 export const profileHandler = async (data: CommandsQueueData) => {
     const userEntity = await user.get(data.user.id)
     if (!userEntity){
-        const text = "Для того, чтобы получить информацию о профиле нужно сначала пообщаться с ботом или нажать /start"
+        const text = `Для того, чтобы получить информацию о профиле нужно сначала пообщаться с ботом или нажать ${BotCommands.START}`
         await telegramApi.sendMessage(data.chatId, text, ParseMode.MARKDOWN)
         return
     }

@@ -5,6 +5,9 @@ import dataSource from "./db/ormconfig";
 import {messageHandler} from "./handlers/messageHandler";
 import {commandHandler} from "./handlers/commandHandler";
 import {startHandler} from "./handlers/startHandler";
+import {message} from "telegraf/filters";
+import {paymentHandler} from "./handlers/paymentHandler";
+import {SOMETHING_WENT_WRONG} from "./text";
 
 (async () => {
 
@@ -28,6 +31,7 @@ import {startHandler} from "./handlers/startHandler";
   startHandler(bot)
   commandHandler(bot)
   messageHandler(bot)
+  paymentHandler(bot)
 
   // запуск бота
   bot.launch()
@@ -37,7 +41,7 @@ import {startHandler} from "./handlers/startHandler";
   // глобально ловим ошибки
   bot.catch((err, ctx) => {
     log.error(err);
-    ctx.reply('Что-то пошло не так, попробуйте снова!');
+    ctx.reply(SOMETHING_WENT_WRONG);
   });
 
   // гасим приложение культурно
@@ -47,4 +51,23 @@ import {startHandler} from "./handlers/startHandler";
       log.info('STOP');
     });
   }
+
+  // TODO: вынести в message handler
+  bot.on('pre_checkout_query', (ctx) => {
+    let data = ctx.update.pre_checkout_query
+
+    console.log('data', data)
+
+    ctx.answerPreCheckoutQuery(true)
+        .then(() => {
+          let message = 'Thanks for the purchase!'
+          bot.telegram.sendMessage(data.from.id, message)
+        })
+  })
+
+
+
+
+
+
 })();

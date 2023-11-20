@@ -4,7 +4,8 @@ import {BotCommands, Command} from "./handlers/command";
 dotenv.config()
 export enum Queues {
     MESSAGE= "message",
-    COMMANDS = "commands"
+    COMMANDS = "commands",
+    SUCCESSFUL_PAYMENT = "successful_payment"
 }
 
 type User = {
@@ -26,6 +27,13 @@ export type CommandsQueueData = {
     user: User,
 }
 
+export type PaymentQueueData = {
+    tgUserId: number
+}
+
+// TODO: какой ttl у сообщений очереди?
 export const getMessageQueue = () => new Bull<MessageQueueData>(Queues.MESSAGE, process.env.REDIS_URL);
 
 export const getCommandsQueue = () => new Bull<CommandsQueueData>(Queues.COMMANDS, process.env.REDIS_URL);
+
+export const getPaymentsQueue = () => new Bull<PaymentQueueData>(Queues.SUCCESSFUL_PAYMENT, process.env.REDIS_URL);

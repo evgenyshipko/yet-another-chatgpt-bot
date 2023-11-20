@@ -9,6 +9,8 @@ export const formatDate = (
 
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export const subscriptionEnd = (subscriptionStart: Date) => new Date(
-    subscriptionStart.setDate(subscriptionStart.getDate() + 30)
-)
+export const subscriptionEnd = (start: Date) => {
+    const date = new Date(start)
+    date.setMonth(date.getMonth() + 1)
+    return date
+}

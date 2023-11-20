@@ -1,5 +1,7 @@
 import {Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
+
+// TODO: добавить payment-токен от юкассы
 @Entity("users")
 export class UserEntity {
     @PrimaryGeneratedColumn("uuid")

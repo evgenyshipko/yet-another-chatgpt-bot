@@ -2,7 +2,7 @@ import {contextStorage} from "./redisStorage";
 import {encoding_for_model, TiktokenModel} from "tiktoken";
 import {GptRoles} from "./gpt";
 
-enum ChatGpt {
+export enum ChatGpt {
     GPT_3_5_TURBO = 'gpt-3.5-turbo',
     GPT_4 = 'gpt-4'
 }

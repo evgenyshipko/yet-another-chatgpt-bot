@@ -1,10 +1,9 @@
 import OpenAI from "openai";
 import * as dotenv from 'dotenv';
-import {calcTokens, context, gptMessage} from "./context";
+import {calcTokens, ChatGpt, context, gptMessage, Messages} from "./context";
+import axios from "axios";
 
 dotenv.config();
-
-const openai = new OpenAI({apiKey: process.env.GPT_SECRET_TOKEN});
 
 export enum GptRoles {
     SYSTEM = 'system',
@@ -12,7 +11,25 @@ export enum GptRoles {
     ASSISTANT = 'assistant'
 }
 
-const ask = async (chatId: number, text: string) => {
+const openaiQuery = async (messages: Messages, model: ChatGpt) => {
+    const res = await axios.post<OpenAI.Chat.Completions.ChatCompletion>(
+        `${process.env.GPT_PROXY}/v1/chat/completions`,
+        {
+            model,
+            messages,
+            temperature: 0.3
+        },
+        {
+        headers: {
+            Authorization: `Bearer ${process.env.GPT_SECRET_TOKEN}`,
+            "Content-Type": "application/json"
+        },
+    })
+    return res.data
+}
+
+
+const ask = async (chatId: number, text: string, model: ChatGpt) => {
 
     const contextArr = await context.get(chatId)
 
@@ -20,13 +37,10 @@ const ask = async (chatId: number, text: string) => {
 
 
     const rejectPromise = new Promise<OpenAI.Chat.Completions.ChatCompletion>((resolve, reject) => {
-        setTimeout(() => reject('Timeout exceed'), 20000)
+        setTimeout(() => reject('Timeout exceed'), 400 * 1000)
     })
 
-    const completionPromise = openai.chat.completions.create({
-        messages: contextArr,
-        model: process.env.GPT_VERSION,
-    });
+    const completionPromise = openaiQuery(contextArr, model)
 
     // TODO: добавить ретраи
     // TODO: в трай-кэтч написать мимимишное сообщение

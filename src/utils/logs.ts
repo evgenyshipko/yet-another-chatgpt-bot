@@ -25,6 +25,7 @@ const init = () => {
   });
 }
 
+// TODO: логгировать по-умолчанию chatId, userId
 export const log = {
   error, info, init
 }

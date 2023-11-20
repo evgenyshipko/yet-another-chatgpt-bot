@@ -1,11 +1,13 @@
 import * as dotenv from 'dotenv';
-import {getMessageQueue} from "../queues";
+import {getMessageQueue, getPaymentsQueue} from "../queues";
 import {ParseMode, telegramApi} from "../utils/telegramApi";
 import {user as utilsUser} from "../utils/user";
 import dataSource from "../db/ormconfig";
 import {throttlingStorage} from "../utils/redisStorage";
 import {gpt} from "../utils/gpt";
 import {log} from "../utils/logs";
+import {ChatGpt} from "../utils/context";
+import {EXCEED_FREE_LIMIT, MESSAGE_PROCESSING_START, SOMETHING_WENT_WRONG} from "../text";
 
 (async () => {
 
@@ -19,11 +21,12 @@ import {log} from "../utils/logs";
 
     await dataSource.initialize()
 
+    // TODO: разобраться с concurrency в bull
     queue.process(50, async (job, done) => {
         const {chatId, user, message} = job.data;
         try {
-            const isNotAvailableToSend = await throttlingStorage.check({chatId, userId: user.id})
-            if (isNotAvailableToSend) {
+            const isThrottled = await throttlingStorage.check({chatId, userId: user.id})
+            if (isThrottled) {
                 return;
             }
 
@@ -36,20 +39,23 @@ import {log} from "../utils/logs";
                 lastName: user.lastName
             })
 
-            const isSendingEnabled = await utilsUser.canMakeQuery(user.id)
+            const {canMakeQuery, paidSubscription} = await utilsUser.canMakeQuery(user.id)
 
-            if (!isSendingEnabled) {
-                const message = 'К сожалению у вас закончился пробный период 😢\n' +
-                    'Для приобретения месячной подписки пишите администратору бота @evgenyship'
-                await telegramApi.sendMessage(chatId, message)
+            if (!canMakeQuery) {
+                await telegramApi.sendMessage(chatId, EXCEED_FREE_LIMIT)
                 return;
             }
 
-            const reply = await telegramApi.sendMessage(chatId, 'Выполняется обработка запроса, ждите! 😊');
+            const reply = await telegramApi.sendMessage(chatId, MESSAGE_PROCESSING_START);
 
             await throttlingStorage.set({chatId, userId: user.id, value: true, expired: 60})
 
-            const {text: result} = await gpt.ask(chatId, message);
+            // TODO: перед показом миру - раскомментить
+            // const model = paidSubscription ? ChatGpt.GPT_4 : ChatGpt.GPT_3_5_TURBO
+
+            const model = ChatGpt.GPT_3_5_TURBO
+
+            const {text: result} = await gpt.ask(chatId, message, model);
 
             await telegramApi.sendMessage(chatId, result, ParseMode.MARKDOWN)
 
@@ -63,11 +69,24 @@ import {log} from "../utils/logs";
         } catch(error){
             log.error(error)
             await throttlingStorage.drop({chatId, userId: user.id})
-            await telegramApi.sendMessage(job.data.chatId, 'Что-то пошло не так, попробуйте снова!')
+            await telegramApi.sendMessage(job.data.chatId, SOMETHING_WENT_WRONG)
         } finally {
             done()
         }
     })
+
+    // TODO: нормально ли обрабатывать несколько очередей в одном воркере
+    const paymentQueue = getPaymentsQueue()
+
+    paymentQueue.process(50, async (job, done) => {
+        // TODO: try-catch
+        const userId = job.data.tgUserId
+        await utilsUser.buySubscription(userId)
+        log.info(`User ${userId} купил подписку!`)
+        // TODO: поздравительное сообщение
+        done()
+    })
+
 
     log.info('Message worker started successfully!')
 
