@@ -31,7 +31,7 @@ const openaiQuery = async (messages: Messages, model: ChatGpt) => {
 
 const ask = async (chatId: number, text: string, model: ChatGpt) => {
 
-    const contextArr = await context.get(chatId)
+    const contextArr = await context.get(chatId, model)
 
     contextArr.push(gptMessage(GptRoles.USER, text))
 
@@ -52,7 +52,7 @@ const ask = async (chatId: number, text: string, model: ChatGpt) => {
 
     await context.save(chatId, contextArr)
 
-    console.log('usage: ', res.usage.total_tokens, ',calc: ', calcTokens(contextArr))
+    console.log('usage: ', res.usage.total_tokens, ',calc: ', calcTokens(contextArr, model))
 
     return {text: result, usage: res.usage.total_tokens}
 }
